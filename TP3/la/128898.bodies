@@ -1,0 +1,19 @@
+class Client
+!!!132226.java!!!	Client(in nom : String)
+    this.nom=nom;
+    this.listeComptes = new ArrayList<Compte>();
+!!!132354.java!!!	setNom(in nom : String) : void
+    this.nom = nom;
+!!!132482.java!!!	getNom() : String
+    return this.nom;
+!!!132610.java!!!	addCompte(inout compte : Compte) : void
+    this.listeComptes.add(compte);
+!!!132738.java!!!	removeCompte(inout compte : Compte) : void
+    this.listeComptes.remove(compte);
+!!!132866.java!!!	getListeComptes() : Compte
+    return this.listeComptes;
+!!!132994.java!!!	getCompte(in numero : String) : Compte
+    for(Compte compte: this.listeComptes){
+      if(numero.equals(compte.getNumero())) return compte;
+    }
+    return null;

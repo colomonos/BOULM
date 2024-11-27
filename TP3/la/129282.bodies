@@ -1,0 +1,22 @@
+class CompteCourant
+!!!134146.java!!!	CompteCourant(in numero : String, in solde : float)
+            super(numero, solde);
+!!!134274.java!!!	getDecouvertAutorise() : float
+        return this.decouvertAutorise;
+!!!134402.java!!!	setDecouvertAutorise(in val : float) : void
+        this.decouvertAutorise = val;
+!!!134530.java!!!	debiter(in montant : float, in info : String) : boolean
+      if(montant>0){
+          float res = this.solde-montant;
+          if(res>=-this.decouvertAutorise){ // vérification solde après opératioin
+              this.solde = res;
+              this.historique.add(0, new Operation(new Date(), -montant));
+              return true;
+          }
+      }
+      return false;
+!!!134658.java!!!	toString() : String
+            String res = "\tCompte courant n.  : " + this.numero + "\n";
+                   res +="\tDécouvert autorisé : " + this.decouvertAutorise + "\n"; 
+                   res+= "\tSolde du compte    : " + this.solde + "\n";
+            return  res;
